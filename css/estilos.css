@@ -1,0 +1,575 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #111;
+    color: white;
+    transition: 0.5s;
+}
+
+/* MENU */
+.menu-btn {
+    font-size: 30px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#menu {
+    position: fixed;
+    left: -200px;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    border-right: 2px solid #00ff88;
+    box-shadow: 0 0 20px rgba(0,255,136,0.4);
+    transition: 0.3s;
+    padding-top: 50px;
+}
+
+#menu a {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#menu a:hover {
+    background: #444;
+}
+
+.seccion {
+    display: none;
+    padding: 40px;
+    max-width: 900px;
+    margin: 40px auto;
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid #00ff88;
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+    box-shadow: 
+        0 0 15px rgba(0,255,136,0.5),
+        0 0 40px rgba(0,255,136,0.2);
+    animation: fadeIn 0.5s ease;
+}
+
+.activa {
+    display: block;
+}
+
+.foto {
+    border-radius: 50%;
+}
+
+/* Shift content when menu opens so menu doesn't overlap info */
+.menu-open .app {
+    margin-left: 200px; /* same width as menu */
+    transition: margin-left 0.3s ease;
+}
+
+/* Ensure app content is above background iframe */
+.app {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    background: transparent;
+}
+
+#contador-visitas {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: monospace;
+    color: #00ff88;
+    background: rgba(0,0,0,0.7);
+    padding: 10px;
+    border: 1px solid #00ff88;
+    box-shadow: 0 0 10px #00ff88;
+}
+
+/* HACKER MODE */
+.hacker-mode {
+    background: black;
+    overflow: hidden;
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;   /* 🔥 LO MANDA AL FONDO */
+    pointer-events: none; /* 🔥 PERMITE HACER CLICK A TRAVÉS */
+}
+
+.contenido {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.neon {
+    color: #00ff00;
+    text-shadow: 0 0 10px #00ff00;
+}
+
+.btn-hacker {
+    padding: 15px 30px;
+    font-size: 18px;
+    background: black;
+    border: 2px solid #00ff88;
+    color: #00ff00;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-hacker:hover {
+    background: #00ff88;
+    color: black;
+}
+
+.volver {
+    color: #00ff88;
+    text-decoration: none;
+}
+
+/* Botón de reproducción de audio (fallback cuando autoplay es bloqueado) */
+#audio-play-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+/* Debug panel styles */
+.debug-panel {
+    margin-top: 18px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.debug-panel audio {
+    height: 32px;
+}
+
+/* BACKGROUND IFRAME (apocalipsis.html) */
+#bg-frame {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    z-index: 0;
+    pointer-events: none; /* allows interactions on parent page */
+}
+
+/* App container sits above the background iframe */
+
+.grid-datos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 30px;
+    margin-bottom: 30px;
+}
+
+.grid-datos div {
+    padding: 8px;
+    background: rgba(0,255,136,0.05);
+    border-left: 3px solid #00ff88;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.grid-datos div:hover {
+    background: rgba(0,255,136,0.15);
+    transform: translateX(5px);
+}
+
+.foto-container {
+    width: 180px;
+    height: 180px;
+    margin: 20px auto;
+    border-radius: 50%;
+    position: relative;
+}
+
+.foto-perfil {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #00ff88;
+    position: relative;
+    z-index: 2;
+}
+
+/* ARO ANIMADO */
+.foto-container::before {
+    content: "";
+    position: absolute;
+    inset: -5px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top: 3px solid #00ff88;
+    border-right: 3px solid #00ff88;
+    animation: girar 3s linear infinite;
+}
+
+.dato {
+    margin-bottom: 10px;
+}
+
+.dato-header {
+    cursor: pointer;
+    padding: 10px;
+    background: rgba(0,255,136,0.1);
+    border-left: 3px solid #00ff88;
+}
+
+.dato-header:hover {
+    background: rgba(0,255,136,0.2);
+}
+
+.dato-contenido {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    padding-left: 10px;
+}
+
+.dato.abierto .dato-contenido {
+    max-height: 100px;
+}
+
+.dato-contenido {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    padding-left: 10px;
+    color: #00ff88;
+    font-family: monospace;
+}
+
+.dato.abierto .terminal-text {
+    animation: glitch 0.3s linear;
+}
+
+#mensaje-acceso {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: monospace;
+    color: #ff4444;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+#mensaje-acceso.autorizado {
+    color: #00ff88;
+    text-shadow: 0 0 10px #00ff88;
+}
+
+.dato.abierto {
+    position: relative;
+    overflow: hidden;
+}
+
+.dato.abierto::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 2px;
+    background: #00ff88;
+    box-shadow: 0 0 10px #00ff88;
+    animation: scan 0.6s linear;
+}
+
+#formacion.activa h2 {
+    animation: glitch 0.4s linear;
+}
+
+#formacion {
+    transform: translateX(50px);
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+#formacion.activa {
+    transform: translateX(0);
+    opacity: 1;
+    animation: glowFormacion 0.6s ease;
+}
+
+.glitch-title {
+    position: relative;
+    color: #00ff88;
+}
+
+.glitch-activo {
+    animation: glitch 2s infinite;
+}
+
+.logro-item {
+    transition: 0.3s;
+}
+
+.logro-item:hover {
+    animation: glitch 0.3s linear;
+    color: #00ff88;
+    text-shadow: 0 0 8px #00ff88;
+}
+
+.menu-header {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(0,255,136,0.3);
+}
+
+.menu-title {
+    font-family: monospace;
+    font-size: 14px;
+    letter-spacing: 3px;
+    color: #00ff88;
+}
+
+.menu-status {
+    font-size: 12px;
+    color: #00ff88;
+    margin-top: 5px;
+    animation: pulseStatus 1.5s infinite;
+}
+
+.menu-divider {
+    height: 1px;
+    background: rgba(0,255,136,0.3);
+    margin: 20px 0;
+}
+
+.menu-footer {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 11px;
+    font-family: monospace;
+    color: rgba(0,255,136,0.6);
+}
+
+#menu a {
+    font-family: monospace;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+#menu a:hover {
+    background: rgba(0,255,136,0.2);
+    padding-left: 15px;
+}
+
+.loader-text {
+    font-family: monospace;
+    color: #00ff88;
+    text-align: center;
+    margin-bottom: 20px;
+    animation: blink 1s infinite alternate;
+}
+
+.loader-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(0,255,136,0.2);
+    margin-top: 10px;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.loader-progress {
+    height: 100%;
+    width: 0%;
+    background: #00ff88;
+    box-shadow: 0 0 10px #00ff88;
+    transition: width 0.2s linear;
+}
+
+.loader-text.activo {
+    opacity: 1;
+    animation: blink 0.8s infinite alternate;
+}
+
+.carrusel {
+    overflow: hidden;
+    width: 100%;
+    margin-top: 30px;
+    border: 2px solid #00ff88;
+    border-radius: 10px;
+}
+
+.slides {
+    display: flex;
+    animation: deslizar 12s infinite ease-in-out;
+}
+
+.slides img {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+}
+
+#system-info {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    text-align: right;
+    font-family: monospace;
+    font-size: 12px;
+    color: #00ff88;
+    z-index: 9999;
+    text-shadow: 0 0 5px #00ff88;
+}
+
+#fake-location {
+    font-size: 11px;
+    opacity: 0.8;
+}
+
+#system-right-panel {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 200px;
+    font-family: monospace;
+    color: #00ff88;
+}
+
+.system-box {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #00ff88;
+    background: rgba(0,0,0,0.6);
+    box-shadow: 0 0 10px #00ff88;
+}
+
+.system-title {
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.barra {
+    width: 100%;
+    height: 8px;
+    background: #111;
+    border: 1px solid #00ff88;
+    margin-bottom: 5px;
+}
+
+.barra-interna {
+    height: 100%;
+    width: 50%;
+    background: #00ff88;
+    transition: width 0.5s ease;
+}
+
+#firewall-status {
+    animation: pulseStatus 2s infinite;
+}
+
+#inicio-contenido {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+}
+
+#inicio-contenido.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+@keyframes deslizar {
+    0% { transform: translateX(0%); }
+    20% { transform: translateX(0%); }
+
+    25% { transform: translateX(-100%); }
+    45% { transform: translateX(-100%); }
+
+    50% { transform: translateX(-200%); }
+    70% { transform: translateX(-200%); }
+
+    75% { transform: translateX(0%); }
+    100% { transform: translateX(0%); }
+}
+
+@keyframes blink {
+    from { opacity: 1; }
+    to { opacity: 0.3; }
+}
+
+@keyframes pulseStatus {
+    0% { opacity: 1; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; }
+}
+
+@keyframes glowFormacion {
+    0% { box-shadow: 0 0 0px #00ff88; }
+    50% { box-shadow: 0 0 25px #00ff88; }
+    100% { box-shadow: 0 0 10px #00ff88; }
+}
+@keyframes scan {
+    0% { top: 0; }
+    100% { top: 100%; }
+}
+
+@keyframes glitch {
+    0% { transform: translate(0); text-shadow: 2px 0 red, -2px 0 blue; }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(2px, -2px); }
+    60% { transform: translate(-2px, -2px); }
+    80% { transform: translate(2px, 2px); }
+    100% { transform: translate(0); text-shadow: none; }
+}
+
+@keyframes girar {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes warningShake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    50% { transform: translateX(4px); }
+    75% { transform: translateX(-4px); }
+    100% { transform: translateX(0); }
+}
+
+.no-click {
+    cursor: not-allowed;
+}
+
+.feedback-click {
+    animation: warningShake 0.3s ease;
+    color: #ff4444 !important;
+}
+
+h1, h2 {
+    color: #00ff88;
+    text-shadow: 0 0 8px rgba(0,255,136,0.6);
+}
+
+
