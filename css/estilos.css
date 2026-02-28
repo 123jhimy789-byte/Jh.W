@@ -11,6 +11,21 @@ body {
     font-size: 30px;
     padding: 10px;
     cursor: pointer;
+    color: #00ff88;
+    cursor: pointer;
+    z-index: 10000;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 5px #00ff88,
+                 0 0 10px #00ff88,
+                 0 0 20px #00ff88;
+}
+
+.menu-btn:hover {
+    color: #00ffaa;
+    text-shadow: 0 0 10px #00ff88,
+                 0 0 20px #00ff88,
+                 0 0 40px #00ff88;
+    
 }
 
 #menu {
