@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>CV Interactivo</title>
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <audio id="clickSound" src="audio/click.mp3"></audio>
+
+    <iframe id="bg-frame" src="apocalipsis.html" title="Fondo animado" aria-hidden="true"></iframe>
+
+    <div class="app">
+        <div class="menu-btn" onclick="toggleMenu()">☰</div>
+        <div id="system-info">
+    <div id="fecha-actual"></div>
+    <div id="fake-location">Ubicación: Encriptando...</div>
+</div>
+
+        <div id="contador-visitas">
+    VISITAS: 000001
+</div>
+
+<div id="system-right-panel">
+
+    <div class="system-box">
+        <div class="system-title">⚠ SYSTEM THREAT</div>
+        <div class="barra">
+            <div id="threat-bar" class="barra-interna"></div>
+        </div>
+        <div id="threat-text">34%</div>
+    </div>
+
+    <div class="system-box">
+        <div class="system-title">🔋 SYSTEM POWER</div>
+        <div class="barra">
+            <div id="power-bar" class="barra-interna"></div>
+        </div>
+        <div id="power-text">87%</div>
+    </div>
+
+    <div class="system-box">
+        <div class="system-title">🛡 FIREWALL STATUS</div>
+        <div id="firewall-status">ACTIVE</div>
+    </div>
+
+</div>
+
+        <nav id="menu">
+
+    <div class="menu-header">
+        <div class="menu-title">SYSTEM PANEL</div>
+        <div class="menu-status">● ONLINE</div>
+    </div>
+
+    <a onclick="mostrarSeccion('inicio')">📂 Inicio</a>
+    <a onclick="mostrarSeccion('formacion')">🎓 Formación</a>
+    <a onclick="mostrarSeccion('logros')">🏆 L.Motivaciones</a>
+
+    <div class="menu-divider"></div>
+
+    <a href="apocalipsis.html">💀 Modo Hacker</a>
+
+    <div class="menu-footer">
+        <span>SECURE v2.3</span>
+    </div>
+
+</nav>
+
+<section id="inicio" class="seccion activa">
+    <h2 class="glitch-title">•𝕴nicio</h2>
+    <div class="loader-text">
+    <span class="loader-mensaje">Conectando al sistema...</span>
+    <div class="loader-bar">
+        <div class="loader-progress"></div>
+    </div>
+</div>
+
+<div id="inicio-contenido">
+
+    <h1>-𝕯ime 𝓣u 𝕹ombre...</h1>
+    <div class="foto-container">
+    <img src="img/imagenperfil.jpeg" class="foto-perfil">
+</div>
+
+
+    <div id="mensaje-acceso">🔐 SISTEMA BLOQUEADO
+        
+    </div>
+
+    <button id="btnRevelar" class="btn-hacker" onclick="revelarTodo()">
+            REVELAR TODO 🔓
+        </button>
+
+    <div class="grid-datos">
+
+        <div class="dato">
+            <div class="dato-header" onclick="toggleDato(this)">
+                🔒 Nombre Completo
+            </div>
+            <div class="dato-contenido">
+                <span class="terminal-text" data-text="Jhimy.W Heredia Villca"></span>
+            </div>
+        </div>
+
+        <div class="dato">
+            <div class="dato-header" onclick="toggleDato(this)">
+                🔒 Documento de Identidad
+            </div>
+            <div class="dato-contenido">
+                <span class="terminal-text" data-text="X 7567888 X"></span>
+            </div>
+        </div>
+
+        <div class="dato">
+            <div class="dato-header" onclick="toggleDato(this)">
+                🔒 Fecha de Nacimiento
+            </div>
+            <div class="dato-contenido">
+                <span class="terminal-text" data-text="15D/08M/2007A"></span>
+            </div>
+        </div>
+
+        <div class="dato">
+            <div class="dato-header" onclick="toggleDato(this)">
+                🔒 Nacionalidad
+            </div>
+            <div class="dato-contenido">
+                <span class="terminal-text" data-text="Boliviana"></span>
+            </div>
+        </div>
+
+        <div class="dato">
+            <div class="dato-header" onclick="toggleDato(this)">
+                🔒 Correo Electrónico
+            </div>
+            <div class="dato-contenido">
+                <span class="terminal-text" data-text="123jhimy789@gmail.com"></span>
+            </div>
+        </div>
+        <div class="dato">
+    <div class="dato-header" onclick="toggleDato(this)">
+        🔒 Lugar de Emisión
+    </div>
+    <div class="dato-contenido">
+        <span class="terminal-text" data-text=".Sucre - .Chuquisaca"></span>
+    </div>
+</div>
+
+<div class="dato">
+    <div class="dato-header" onclick="toggleDato(this)">
+        🔒 País
+    </div>
+    <div class="dato-contenido">
+        <span class="terminal-text" data-text="Bolivia"></span>
+    </div>
+</div>
+
+<div class="dato">
+    <div class="dato-header" onclick="toggleDato(this)">
+        🔒 Departamento
+    </div>
+    <div class="dato-contenido">
+        <span class="terminal-text" data-text="Chuquisaca"></span>
+    </div>
+</div>
+
+<div class="dato">
+    <div class="dato-header" onclick="toggleDato(this)">
+        🔒 Provincia
+    </div>
+    <div class="dato-contenido">
+        <span class="terminal-text" data-text="Oropeza"></span>
+    </div>
+</div>
+
+<div class="dato">
+    <div class="dato-header" onclick="toggleDato(this)">
+        🔒 Sexo
+    </div>
+    <div class="dato-contenido">
+        <span class="terminal-text" data-text="Masculino :3 ✅ / Femenino D:"></span>
+    </div>
+</div>
+
+<div class="dato">
+    <div class="dato-header" onclick="toggleDato(this)">
+        🔒 Estado Civil
+    </div>
+    <div class="dato-contenido">
+        <span class="terminal-text" data-text="Soltero (ojito)"></span>
+    </div>
+</div>
+
+<div class="dato">
+    <div class="dato-header" onclick="toggleDato(this)">
+        🔒 Grado de Inglés
+    </div>
+    <div class="dato-contenido">
+        <span class="terminal-text" data-text="Intermedio"></span>
+    </div>
+</div>
+
+<div class="dato">
+    <div class="dato-header" onclick="toggleDato(this)">
+        🔒 Dirección
+    </div>
+    <div class="dato-contenido">
+        <span class="terminal-text" data-text="Calle Manzano #123, Sucre, Chuquisaca(ubicasion desconosida...)"></span>
+    </div>
+</div>
+
+<div class="dato">
+    <div class="dato-header" onclick="toggleDato(this)">
+        🔒 Apoderado
+    </div>
+    <div class="dato-contenido">
+        <span class="terminal-text" data-text="Norma Villca - N.76113140 "></span>
+    </div>
+</div>
+
+    </div>
+
+<div class="carrusel">
+    <div class="slides">
+        <img src="img/imagen1 - copia.jpg">
+        <img src="img/imagen1.jpg">
+    </div>
+</div>
+</section>
+
+
+
+<section id="formacion" class="seccion">
+    <h2>•𝕱ormación 𝓐cadémica</h2>
+    <div class="loader-text">
+    <span id="loader-mensaje">Conectando...</span>
+    <div class="loader-bar">
+        <div class="loader-progress"></div>
+    </div>
+</div>
+  
+
+    <div class="grid-datos">
+
+        <div class="dato">
+            <div class="dato-header" onclick="toggleDato(this)">
+                🔒 Colegio
+            </div>
+            <div class="dato-contenido">
+                <span class="terminal-text" data-text="Jaime de Zudañez"></span>
+            </div>
+        </div>
+
+        <div class="dato">
+            <div class="dato-header" onclick="toggleDato(this)">
+                🔒 Año de Egreso
+            </div>
+            <div class="dato-contenido">
+                <span class="terminal-text" data-text="2025X"></span>
+            </div>
+        </div>
+
+    </div>
+    <div class="dato">
+    <div class="dato-header" onclick="toggleDato(this)">
+        🔒 Nivel Académico
+    </div>
+    <div class="dato-contenido">
+        <span class="terminal-text" data-text="Bachiller en Humanidades-Téc.M"></span>
+    </div>
+</div>
+
+<div class="dato">
+    <div class="dato-header" onclick="toggleDato(this)">
+        🔒 Experiencia Profesional
+    </div>
+    <div class="dato-contenido">
+        <span class="terminal-text" data-text="Desarrollo Web Simple-Int, Trabajo de Obra, Pintura y Danza"></span>
+    </div>
+</div>
+
+<div class="dato">
+    <div class="dato-header" onclick="toggleDato(this)">
+        🔒 Área de Especialidad-Habilidad
+    </div>
+    <div class="dato-contenido">
+        <span class="terminal-text" data-text="Tecnología e Informática - Matemática - Arte - Logística.p.Crit"></span>
+    </div>
+</div>
+
+<div class="dato">
+    <div class="dato-header" onclick="toggleDato(this)">
+        🔒 Cursos Complementarios
+    </div>
+    <div class="dato-contenido">
+        <span class="terminal-text" data-text="Programación Sist.Web/BTH - Curs.Elit - Capasitación Educ."></span>
+    </div>
+</div>
+
+    <div class="carrusel">
+    <div class="slides">
+        
+        <img src="img/fondounapieza.webp">
+        <img src="img/imagen7.jpg">
+    </div>
+</div>
+</section>
+
+
+
+<section id="logros" class="seccion">
+    <h2>•𝕸otivaciones</h2>
+    <div class="loader-text">
+    <span class="loader-mensaje">Conectando...</span>
+    <div class="loader-bar">
+        <div class="loader-progress"></div>
+    </div>
+</div>
+    <ul>
+        <li class="logro-item">Estudiante Apasionado por la Tecnología
+            <p>Mis Motivaciones van mas haya que solo una web, comenzó con el deseo de crear algo útil y significativo.
+
+                <p>Lo puedo hacer todo sin importar que mi imaginacion es el unico limite, y que puedo crear lo que sea sin importar que tan loco o imposible parezca, lo unico que necesito son mis ganas de crear.</p>
+                <p>Tambien porque la tecnologia va a ser la siguiente gran revolucion que nos guiara a la siguiente generacion donde todo sera digital, prepararse para el futuro que viene, es parte de mi motivacion.
+                    <p>Va a cambiar tanto el mundo y a la generacion del momento, con nueva tecnologia para todo tipo de oficio y necesidad, como para medicina, arquitectura, moviliaria, Control, Comersio, diseño, construcion, Arte, Danza, Cultura, Educasion, incluye el uso de telefonos en estas ultimas, no se puede negar tal herramienta escensial para nosotros, tal vez con siertas restriccione y limiitaciones pero no en su totalidad, saber dominar la tecnologia, tanto como la adiccion de ella es parte de aprender y evolucionar. </p>
+                <p>Ser lo suficientemente capaz para esta sociedad ,para el futuro que llega rapido, en si para el mundo </p>
+
+                </p>
+                Parte de esta sociedad en la que vivimos esta llena de personas que se limitan a no aprender, de aquellas que pasan por la negligencia sin ambision sino codicia, tambien aprendo para ello, para cambiar eso.
+                <p>Una sociedad mejor para que el lugar donde vivimos sea un lugar mejor donde si haya profesionales prudentes y que si sepan, que quieran aprender y superar con sus esfuerzos Mutuos.</p>
+                <p>No solo este lugar sino en todos, yo veo el reflejo de la grandeza en los que si desean aprender y superarse, me motiva a seguir, estudio T.Sis. por lo que aun no lo comprendo,
+                por lo que aun no e aprendido, por lo que no domino y comprendo, quiero aprender lo que desconosco.</p>
+                Compartir mi Idea, y esta plataforma me permitió hacerlo de una forma interactiva y creativa hasta inesperada. 
+                Cada sección es un reflejo de mis experiencias, logros y aspiraciones, y espero que inspire a otros a perseguir sus propias pasiones y metas.
+                <p>A que aspiren a ser mejores personas, no solo para ellos, sino para bolivia, mi pais.</p>
+
+            </p>
+        </li>
+       
+    </ul>
+
+    <div class="carrusel">
+    
+        <img src="img/fondo5.webp">
+       
+    </div>
+</div>
+
+</section>
+
+
+
+<script src="js/script.js"></script>
+</body>
+</html>
